@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family:'poppins',sans-serif;
+        }
+        body{
+            color:whitesmoke;
+        }
+        .header{
+            position: fixed;
+            display:flex;
+            justify-content: space-between;
+            width:100%;
+            padding:20px 10px;
+            z-index: 100;
+            background: transparent;
+        }
+        .logo{
+            position: relative;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            color:#fff;
+        }
+        .main a{
+            display: inline-block;
+            font-size: 20px;
+            text-decoration: none;
+            color:#fff;
+            font-weight: 500;
+            margin-left: 35px;
+            transition:.3s;
+        }
+        .main a:hover{
+            color:aqua;
+        }
+        .home{
+            position:relative;
+            width:100%;
+            justify-content: space-between;
+            height:100vh;
+          /*  background-color: rgb(84, 79, 79);*/
+          background-image: url('https://t4.ftcdn.net/jpg/01/79/08/75/360_F_179087574_aXjXMWEtMCpcB7hiOW7gjomzJKz4i1Y8.jpg');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            padding:90px
+        }
+        .Home-Content{
+            margin-top:20px;
+        }
+        .home .image{
+            border-radius:70%;
+        }
+        .logos{
+            margin-top: 70px;
+            padding-top: 40px;
+        }
+        .logos a{
+           padding:10px 10px;  
+        }
+        .about{
+            width:120%;
+            display:flex;
+            align-items: center;
+            gap:1.5rem;
+           /* background-color: rgb(84, 79, 79);*/
+           background-image: url('https://t4.ftcdn.net/jpg/01/79/08/75/360_F_179087574_aXjXMWEtMCpcB7hiOW7gjomzJKz4i1Y8.jpg');
+           background-repeat: no-repeat;
+           background-size: cover;
+            padding: 90px;
+        }
+        section h1{
+            margin-top:10px;
+            margin-bottom:140px;
+        }
+        .about p{
+            color:aliceblue;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+        .container{
+            width:100%;
+            padding:35px 10%;
+            background-image: url('https://t4.ftcdn.net/jpg/01/79/08/75/360_F_179087574_aXjXMWEtMCpcB7hiOW7gjomzJKz4i1Y8.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:black
+        }
+        .col header .title{
+            font-family:helvetica;
+            color:white;
+            padding:0px 0px 20px 30px;
+        }
+        .col .contents{
+            padding:0px 30px;
+            border-left:2px solid #bababa;
+        }
+        .col .contents .box{
+            position:relative;
+            padding:20px;
+            border:1px solid #eaeaea;
+            background-color: #ffffff;
+            cursor:pointer;
+            transition: all 0.4s;
+            margin-bottom:20px;
+        }
+        .title h2{
+            margin-top:65px;
+            margin-bottom:45px;
+            color:white;
+        }
+        
+        .Skills{
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding:80px 20px;
+          /*  background-color:rgb(84, 79, 79);*/
+          background-image: url('https://t4.ftcdn.net/jpg/01/79/08/75/360_F_179087574_aXjXMWEtMCpcB7hiOW7gjomzJKz4i1Y8.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+            padding-top:100px;
+        }
+        .skills{
+            width:100%;
+            max-width:600px;
+            padding:0px 20px;
+            margin-bottom: 40px;
+        }
+        .skills h1{
+            margin-top:100px;
+        }
+        .skill-name{
+            font-size:18px;
+            font-weight:700;
+            color:#f1f1f1;
+            text-transform:uppercase;
+            margin:20px 0px;
+        }
+        .skill-bar{
+            height:14px;
+            background:#282828;
+            border-radius:3px;
+        }
+        .skill-per{
+            height:14px;
+            background:red;
+            border-radius: 3px;
+            position:relative;
+            animation:fillBars 4.5s 1;
+        }
+        .skill-per::before{
+            content:attr(per);
+            position:absolute;
+            padding:4px 6px;
+            background:white;
+            color:black;
+            border-radius:4px;
+            font-size:12px;
+            top:-35px;
+            right:0;
+            transform:translateX(50%);
+        }
+        .skill-per::after{
+            content:"";
+            position:absolute;
+            width:10px;
+            height:10px;
+            background:white;
+            color:black;
+            top:-20px;
+            right:0;
+            transform:translateX(50%) rotate(45deg);
+            border-radius:2px;
+        }
+        @keyframes fillBars{
+            from{
+                width:0;
+            }
+            to{
+                width:100%;
+            }
+        }
+        .contact{
+            display:grid;
+            grid-template-columns: repeat(2,1fr);
+            align-items:center;
+            gap:3rem;
+            padding-left:30px;
+          /*  background-color:rgb(84, 79, 79);*/
+          background-image: url('https://t4.ftcdn.net/jpg/01/79/08/75/360_F_179087574_aXjXMWEtMCpcB7hiOW7gjomzJKz4i1Y8.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+            padding-top: 90px;
+            padding-bottom: 55px;
+        }
+        .contact h1{
+            margin-bottom:100px;
+        }
+        .contact-text h2{
+            margin-top: 80px;
+            font-size:90px;
+            line-height:1;
+            text-align: center;
+        }
+        .contact-text h4{
+            margin:15px 0;
+            color:white;
+            font-size:20px;
+            font-weight:600;
+        }
+        .contact-text p{
+            color:white;
+            font-size:20px;
+            line-height:30px;
+            margin-bottom:2rem;
+        }
+        .contact-list{
+            margin-bottom:3rem;
+        }
+        .contact-list li{
+            margin-bottom: 10px;
+            display:block;
+        }
+        .contact-form form{
+            display: none;
+            position:relative;
+            padding-left:140px;
+        }
+        .contact-form form input,form textarea{
+            border:none;
+            outline:none;
+            width:60%;
+            padding:18px;
+            color:black;
+            font-size:1rem;
+            font-weight:600;
+            margin-bottom:0.5rem;
+            border-radius:0.5rem;
+        }
+        .contact-form form .send{
+           border-radius:40px;
+           background-color: aqua;
+           
+        }
+    </style>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Enlarge the education blocks on hover
+            $(".contents .box").hover(function() {
+                $(this).css({
+                    "transform": "scale(1.1)", // Enlarge the block by 10%
+                    "transition": "transform 0.3s ease" // Add smooth transition
+                });
+            }, function() {
+                $(this).css("transform", "scale(1)"); // Restore original size on mouse out
+            });
+
+            // Toggle the contact form visibility when clicking on the "CONTACT" heading
+            $(".contact h1").click(function() {
+                $(".contact-form form").slideToggle();
+            });
+            // Handle form submission
+            $(".contact-form form").submit(function(event) {
+                event.preventDefault();
+                // You can add your form submission logic here
+                // For now, let's just reset the form fields
+                $("#name").val("");
+                $("#email").val("");
+                $("#message").val("");
+            });
+            $(".logos img").hover(function() {
+                $(this).css({
+                    "transform": "scale(1.3)", // Enlarge the block by 10%
+                    "transition": "transform 0.3s ease" // Add smooth transition
+                });
+            }, function() {
+                $(this).css("transform", "scale(1)"); // Restore original size on mouse out
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+     <a href="" class="logo">Portfolio</a>
+    <div class="main">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#contact">CONTACT</a>
+         </div>
+    </div>
+    <div id="home" class="home">
+         <div class="Home-Content">
+          <h3>Hello!! I am</h3>
+          <h1>Sumanth Bodavula</h1>
+          <h3>Former Associate system engineer in Tata Consultancy Services</h3>
+          <h3>And I am</h3>
+          <p>Looking for my next opportunity to make a change. The digital way.</p>
+            <div class="logos">
+                <a href="https://www.linkedin.com/in/vanhi-battula-9619b628a/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" alt="" width="60px"></a>
+                <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"><img src="https://1000logos.net/wp-content/uploads/2021/05/Gmail-logo.png" alt="" width="100px"></a>
+                <a href="https://www.instagram.com/sumanth_bodavula?igsh=bWd0eWYyODZiM2p4" target="_blank"><img src="https://p7.hiclipart.com/preview/729/192/1024/computer-icons-instagram-logo-sticker-logo.jpg" alt="" width="60px" style="border-radius:40%"></a>
+            </div>
+         </div>
+        <div>
+            <img class="image" src="https://imgur.com/TGnoMYz.jpg" width="250px" alt="">
+        </div>
+    </div>
+    <section id="about" class="about">
+       <div class="about1">
+          <h1><u>ABOUT ME</u></h1>
+          <p>Pursuing masters in ITM from Cumberland University</p>
+          <p> I'm passionate about using technology to make a positive impact in society, whether that's through developing innovative software solutions or volunteering for local coding workshops.</p>
+           <p>My ultimate goal is to pursue a career in software engineering, where I can continue to learn and grow while contributing to cutting-edge projects that push the boundaries of technology.
+            I thrive in collaborative environments and enjoy working on diverse teams to tackle complex problems. Some of my key skills include proficiency in programming languages such as Python, C, and Java, as well as experience with web development frameworks </p>
+        </div>
+    </section>
+    <section id="education" class="education">
+    <div class="container">
+        <main class="row">
+            <section class="col">
+              <header class="title">
+                  <h2><u>EDUCATION</u></h2>
+              </header>
+              <div class="contents">
+                <div class="box">
+                    <h4>2014-2016</h4>
+                    <h3>High School</h3>
+                  <!--- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste cum fugit eligendi rem quibusdam recusandae.</p> -->
+                  <p>Sri Chaitanya School, Nuzvid, Eluru dt, Andhra Pradesh.</p>
+                </div>
+                <div class="box">
+                  <h4>2016-2018</h4>
+                  <h3>Intermediate</h3>
+                 <!--- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero, soluta quis. Asperiores, incidunt. Accusamus, ex.</p> -->
+                 <p>Sri Vagdevi Junior College, Nuzvid, Andhra Pradesh.</p>
+                </div>
+                <div class="box">
+                   <h4>2018-2022</h4>
+                   <h3>Bachelors in biotechnology</h3>
+                  <!---<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, optio? Voluptates facilis tenetur ut voluptate!</p>-->
+                  <p>Vignan’s University, Guntur, Andhra Pradesh.</p>
+                </div>
+                <div class="box">
+                   <h4>2023-present</h4>
+                   <h3>Masters</h3>
+                  <!---<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, optio? Voluptates facilis tenetur ut voluptate!</p>-->
+                  <p>Currently pursuing masters in ITM from Cumberland University</p>
+                </div>
+              </div>
+            </section>
+        </main>
+    </div>
+    </section>
+    <section class="Skills">
+    <div class="skills" id="skills">
+        <h1><u>SKILLS</u></h1>
+       <div class="skill">
+       <div class="skill-name">Python</div>
+       <div class="skill-bar">
+        <div class="skill-per" per="90%" style="max-width:90%"></div>
+       </div>
+       </div>
+       <div class="skill">
+        <div class="skill-name">C</div>
+        <div class="skill-bar">
+         <div class="skill-per" per="70%" style="max-width:70%"></div>
+        </div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">Java</div>
+            <div class="skill-bar">
+             <div class="skill-per" per="60%" style="max-width:60%"></div>
+            </div>
+            </div>
+    </div>
+</section>
+<section class="contact" id="contact">
+  <div class="contact-text">
+  <h1><u>CONTACT</u></h1>
+  <h4>Contact Me for further details</h4>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus nobis ullam architecto. Rerum consectetur dolores, vel animi itaque ducimus suscipit.</p>
+  <div class="contact-list">
+    <li><img src="https://banner2.cleanpng.com/20180425/wwe/kisspng-computer-icons-industry-mail-computer-software-illustrator-icon-5ae01695c9db73.3254661115246352858268.jpg" alt="" width="30px" style="border-radius:30%"><b><i> sbodavula85@students.cumberland.edu</i></b></li>
+    <li><img src="https://i.pinimg.com/736x/33/74/f8/3374f84310d608d74314b06797d29822.jpg" alt="" width="20px" style="border-radius:30%"><b><i> +1 (321) 459-4508</i></b></li>
+  </div>
+  </div>
+    <div class="contact-form" id="contact-form">
+        <form action="" onsubmit="handleSubmit(event)" method="get">
+            <input type="text" id="name" placeholder="Enter Your Name" required>
+            <input type="email" id="email" placeholder="Enter Your Email" required>
+            <textarea id="message" cols="40" rows="10" placeholder="Enter Your Message" required></textarea>
+            <input type="submit" value="submit" class="send">
+        </form>
+  </div>
+</section>
+</body>
+</html>
